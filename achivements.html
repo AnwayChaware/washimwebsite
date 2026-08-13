@@ -7,6 +7,14 @@
     <title>Handball Club - Achievements & National Players</title>
     <link rel="stylesheet" href="achivements.css">
     <style>
+        /* Global body styling with gradient background */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, #a8dadc, #457b9d); /* Gradient background */
+            color: #333; /* Neutral text color */
+        }
+
         /* Overlay background */
         .overlay {
             display: none; /* Hidden by default */
@@ -15,8 +23,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
-            z-index: 1000; /* Make sure it covers everything else */
+            background-color: rgba(0, 0, 0, 0.8); /* Black with transparency */
+            z-index: 1000; /* Covers everything else */
             justify-content: center;
             align-items: center;
         }
@@ -24,14 +32,14 @@
         /* Content inside the overlay */
         .overlay-content {
             position: relative;
-            background-color: white;
+            background-color: #fdfdfd; /* Light off-white background */
             padding: 20px;
             border-radius: 10px;
             max-width: 90%;
             max-height: 90%;
             text-align: center;
             overflow-y: auto;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
         }
 
         /* Close button */
@@ -41,14 +49,14 @@
             right: 20px;
             font-size: 30px;
             cursor: pointer;
-            color: #000;
+            color: #e63946; /* Bright red */
         }
 
         /* Player image inside the overlay */
         .overlay-content img {
             width: 100%;
             height: auto;
-            max-width: 300px; /* Ensure the image is not too large */
+            max-width: 300px; /* Prevent overly large images */
             border-radius: 10px;
             margin-bottom: 20px;
         }
@@ -57,16 +65,18 @@
         .overlay-content h2 {
             margin: 10px 0;
             font-size: 2em;
+            color: #1d3557; /* Navy blue */
         }
 
         .overlay-content p {
             font-size: 1.2em;
+            color: #6c757d; /* Neutral gray */
         }
 
         /* Section for National Players */
         .national-players h2 {
             cursor: pointer;
-            color: #007BFF;
+            color: #1d3557; /* Navy blue */
             text-decoration: underline;
         }
 
@@ -86,7 +96,7 @@
 
         .player-card:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
         }
 
         .player-card img {
@@ -106,16 +116,18 @@
         .player-card h2 {
             margin-top: 10px;
             font-size: 1.5em;
+            color: #343a40; /* Dark gray */
         }
 
         .player-card p {
             text-align: center;
+            color: #495057; /* Neutral dark tone */
         }
 
         /* Footer Styling */
         footer {
-            background-color: #333;
-            color: #fff;
+            background-color: #1d3557; /* Navy blue */
+            color: #f8f9fa; /* Light text */
             padding: 20px;
             text-align: center;
         }
@@ -123,25 +135,200 @@
         footer p {
             margin: 0;
             font-size: 1em;
+            color: #a8dadc; /* Light aqua */
+        }
+
+        /* Medal tally section */
+        .medal-tally {
+            text-align: center;
+            margin: 50px 0;
+        }
+
+        .medal-tally h1 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #e76f51; /* Warm orange */
+        }
+
+        .medal-table {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            border-collapse: collapse;
+        }
+
+        .medal-table th,
+        .medal-table td {
+            border: 1px solid #6d6875; /* Soft gray */
+            padding: 10px;
+            text-align: center;
+        }
+
+        .medal-table th {
+            background-color: #f1faee; /* Light background */
+            font-size: 1.2em;
+            color: #1d3557; /* Navy blue */
+        }
+
+        /* Medal Header Background Color */
+        .medal-table th.gold-header {
+            background-color: #ffd166; /* Warm gold */
+            color: #333; /* Dark text */
+        }
+
+        .medal-table th.silver-header {
+            background-color: #adb5bd; /* Cool silver */
+            color: #333;
+        }
+
+        .medal-table th.bronze-header {
+            background-color: #bc6c25; /* Earthy bronze */
+            color: #fff; /* White text for contrast */
+        }
+
+        /* Medal section inline styles moved to head */
+        .medal-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+            background-color: #f9f9f9;
+        }
+    
+        .medal-box {
+            flex: 1;
+            min-width: 80%;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+    
+        .medal-title {
+            text-align: center;
+            background-color: #b14b4b;
+            color: #fff;
+            padding: 10px;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            border-radius: 6px;
+        }
+    
+        .medal-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+    
+        .medal-table th, .medal-table td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+    
+        .gold-header {
+            background-color: #ffd700;
+            color: #333;
+        }
+    
+        .silver-header {
+            background-color: #c0c0c0;
+            color: #333;
+        }
+    
+        .bronze-header {
+            background-color: #cd7f32;
+            color: #fff;
+        }
+    
+        .medal-table tbody tr:last-child {
+            font-weight: bold;
+            background-color: #f2f2f2;
+        }
+    
+        @media screen and (max-width: 800px) {
+            .medal-section {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
+    
 
 <body>
     <header>
         <div class="container">
             <nav>
                 <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="vision.html">Vision</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="application.html">Application</a></li>
+                    <li><a href='home.html'>Home</a></li>
+                    <li><a href='aboutus.html'>About Us</a></li>
+                    <li><a href='vision.html'>Vision</a></li>
+                    <li><a href='achivements.html'>Achievements</a></li>
+                    <li><a href='tournament.html'>Tournaments</a></li>
+                    <li><a href='news.html'>News</a></li>
+                    <li><a href='gallery.html'>Gallery</a></li>
+                    <li><a href='contact.html'>Contact</a></li>
+                    <li><a href='application.html'>Application</a></li>
                 </ul>
             </nav>
         </div>
     </header>
+    
+    <div class="medal-section">
+        <!-- Men Medal Table -->
+        <div class="medal-box">
+            <div class="medal-title">Men's Medal Tally</div>
+            <table class="medal-table">
+                <thead>
+                    <tr>
+                        <th> Category</th>
+                        <th class="gold-header">Gold</th>
+                        <th class="silver-header">Silver</th>
+                        <th class="bronze-header">Bronze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Under 12</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 14</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 15</td><td>0</td><td>0</td><td>1</td></tr>
+                    <tr><td>Under 17</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 19</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Senior</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>University</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Inter Collegiate</td><td>0</td><td>1</td><td>1</td></tr>
+                    <tr><td>Total</td><td>0</td><td>1</td><td>2</td></tr>
+                </tbody>
+            </table>
+        </div>
+    
+        <!-- Women Medal Table -->
+        <div class="medal-box">
+            <div class="medal-title">Women's Medal Tally</div>
+            <table class="medal-table">
+                <thead>
+                    <tr>
+                        <th> Category</th>
+                        <th class="gold-header">Gold</th>
+                        <th class="silver-header">Silver</th>
+                        <th class="bronze-header">Bronze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Under 12</td><td>1</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 14</td><td>1</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 15</td><td>0</td><td>1</td><td>0</td></tr>
+                    <tr><td>Under 17</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Under 19</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Senior</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>University</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Inter Collegiate</td><td>0</td><td>0</td><td>0</td></tr>
+                    <tr><td>Total</td><td>2</td><td>1</td><td>0</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 
     <section class="achievements">
         <div class="container">
@@ -155,13 +342,41 @@
             <h1>Our National Players</h1>
 
             <!-- Men Section -->
-            <h2 onclick="toggleSection('men')">Men</h2>
-            <div id="men" class="player-list">
+            <h2 onclick="toggleSection('national-men')">Men</h2>
+            <div id="national-men" class="player-list">
                 <!-- Player 1 -->
-                <div class="player-card" onclick="showPlayerDetails('vivekshinde.jpg', 'Vivek Vyankat Shinde', '▪ 37th Sub Junior Boys National Handball Championship, Guwahati, Assam (27th March to 31st March 2023)')"
+                <div class="player-card" onclick="showPlayerDetails('photos/vivekshinde.jpg', 'Vivek Vyankat Shinde', '▪ 37th Sub Junior Boys National Handball Championship, Guwahati, Assam (27th March - 31st March 2022)')"
                     role="button" aria-label="View details for Vivek Vyankat Shinde">
-                    <img src="vivekshinde.jpg">
+                    <img src="photos/vivekshinde.jpg">
                     <h2>Vivek Vyankat Shinde</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/arjun.jpg', 'Arjun Umakanta Mahitakar', '▪ 38th Sub Junior Boys National Handball Championship, Secunderabad, Telangana (3rd Oct - 7th Oct 2024)')"
+                    role="button" aria-label="View details for Arjun Umakanta Mahitakar">
+                    <img src="photos/arjun.jpg">
+                    <h2>Arjun Umakanta Mahitakar</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/harsh.jpg', 'Harsh Vasudev Jadhava', '▪ 38th Sub Junior Boys National Handball Championship, Secunderabad, Telangana(3rd Oct- 7th Oct 2024)')"
+                    role="button" aria-label="View details for ">
+                    <img src="photos/harsh.jpg">
+                    <h2>Harsh Vasudev Jadhava </h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/devansh.jpg', 'Devansh Vijay Jadhava ', '▪ 46th  Junior Boys National Handball Championship, Jahanabad, Bihar(26th Mar- 30th  Mar 2025)')"
+                    role="button" aria-label="View details for ">
+                    <img src="photos/devansh.jpg">
+                    <h2>Devansh Vijay Jadhava</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/yuvansh.jpg', 'Yuvansh Vijay Gajbhiye', '▪ 17th HFI Mini Boys and Girls National Handball Championship, Hyderabad, Telangana (26th Sep - 29th Sep 2025)')"
+                role="button" aria-label="View details for ">
+                <img src="photos/yuvansh.jpg">
+                    <h2>Yuvansh Vijay Gajbhiye </h2>
                     <p>Click for more details</p>
                 </div>
 
@@ -169,75 +384,209 @@
             </div>
 
             <!-- Women Section -->
-            <h2 onclick="toggleSection('women')">Women</h2>
-            <div id="women" class="player-list">
+            <h2 onclick="toggleSection('national-women')">Women</h2>
+            <div id="national-women" class="player-list">
                 <!-- Player 1 -->
-                <div class="player-card" onclick="showPlayerDetails('sakshimatode.jpg', 'Sakshi Dattatraya Matode', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 3rd March 2022)<br>▪ 66th National Games 2022-2023, Handball Girls U19, Delhi (6th June - 12th June 2023)<br>▪ West Zone Inter University Handball (W) Tournament, Udaipur (19th - 23rd January 2024')"
+                <div class="player-card" onclick="showPlayerDetails('photos/rutuja.jpg', 'Rutuja Dattatraya Deshmukh', '▪Second Position at 35th Sub-Junior Girls (U/15) Maharashtra State Handball Championship,  Washim, Maharashtra (16th Nov - 18th Nov 2018) <br> ▪ West Zone Handball Championship (Men & Women ), Ambaji Village, Gujarat (17th Sep to 20th Sep) <br> ▪ 42nd Junior Girls National Handball championship at Ghaziabad, Uttarpradesh (4th Feb - 8 Feb 2020) <br> ▪ 2nd Ek Bharat Shreshth Bharat 2019 - 2020 at Hyderabad, Telangana (26th Feb - 28th feb 2020)<br> ▪ 51st senior women National Handball Championship 2022 at Nandyal, Andhra Pradesh (26th Nov - 30th Nov 2022)')"
+                    role="button" aria-label="Rutuja Dattatray Deshmukh">
+                    <img src="photos/rutuja.jpg">
+                    <h2>Rutuja Dattatray Deshmukh</h2>
+                    <p>Click for more details</p>
+                </div>
+
+
+
+                <div class="player-card" onclick="showPlayerDetails('photos/sanjyot.jpg', ' Sanjyot Rajesh Chipade', '▪ Bronze Medal in Maharashtra State Handball Mini Olympic Championship 2023 at Nagpur<br> ▪ 33rd Sub Junior Girls National Handball Championship , Jaisalmer , Rajasthan (2016) <br> ▪ 22nd West Zone Women Handball Championship , Jaipur, Rajasthan (2018)')"
                     role="button" aria-label="View details for Sakshi Dattatraya Matode">
-                    <img src="sakshimatode.jpg">
-                    <h2>Sakshi Dattatraya Matode</h2>
+                    <img src="photos/sanjyot.jpg">
+                    <h2>Sanjyot Rajesh Chipade</h2>
+                    <p>Click for more details</p>
+                </div>
+
+
+                <div class="player-card" onclick="showPlayerDetails('photos/sakshimatode.jpg', 'Sakshi Dattatray Matode', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 3rd March 2022)<br>▪ 66th National Games 2022-2023, Handball Girls U19, Delhi (6th June - 12th June 2023)<br>▪ 46 th Junior Girls National Handball Championship, Dindigul, Tamilnadu, (23rd Dec - 27th Dec 2024)')"
+                    role="button" aria-label="View details for Sakshi Dattatraya Matode">
+                    <img src="photos/sakshimatode.jpg">
+                    <h2>Sakshi Dattatray Matode</h2>
                     <p>Click for more details</p>
                 </div>
 
                 <!-- Player 2 -->
-                <div class="player-card" onclick="showPlayerDetails('mohini_ghate.jpg', 'Mohini Ravindra Ghate', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 2nd March 2022)<br>▪ 67th National School Games 2023-2024, Handball Girls U19, Hisar, Haryana (5th Jan - 9th Jan 2024)<br>▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024')"
+                <div class="player-card" onclick="showPlayerDetails('photos/mohini_ghate.jpg', 'Mohini Ravindra Ghate', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 2nd March 2022)<br>▪ 67th National School Games 2023-2024, Handball Girls U19, Hisar, Haryana (5th Jan - 9th Jan 2024)<br>▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024) <br> ▪ 46th Junior Girls National Handball Championship, Dindigul, Tamilnadu, (23rd Dec - 27th Dec 2024)')"
                     role="button" aria-label="View details for Mohini Ravindra Ghate">
-                    <img src="mohini_ghate.jpg">
+                    <img src="photos/mohini_ghate.jpg">
                     <h2>Mohini Ravindra Ghate</h2>
                     <p>Click for more details</p>
                 </div>
 
+                <div class="player-card" onclick="showPlayerDetails('photos/hindavi.jpg', 'Hindavi Nitin Kale', '▪ 3rd position at State level School Games Tournament 2018-19 <br> ▪ 36th Sub-Junior Girls National Handball Championship, Rudrapur, Uttarakhand (2nd Oct - 6th Oct 2019) <br> ▪ 35th Sub--Junior Girls (U/15) State Handball Championship, Washim, Maharashtra (16th Nov - 18th Nov 2018)')"
+                    role="button" aria-label="View details for Hindavi Nitin Kale">
+                    <img src="photos/hindavi.jpg">
+                    <h2>Hindavi Nitin Kale</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/samikshac.jpg', 'Samiksha Baldev Chavhan', '▪ State level School Games Tournament Solapur Maharashtra (2017-18)<br> ▪ 34th sub junior national handball championshiop, Gaziyaba, Uttar Pradesh  (2017)')"
+                    role="button" aria-label="View details for Mohini Ravindra Ghate">
+                    <img src="photos/samikshac.jpg">
+                    <h2>Samiksha Baldev Chavhan</h2>
+                    <p>Click for more details</p>
+                </div>
+
                 <!-- Player 3 -->
-                <div class="player-card" onclick="showPlayerDetails('bhumika_khade.jpg', 'Bhumika Nilesh Khade', '▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan-31st Jan 2024)')"
+                <div class="player-card" onclick="showPlayerDetails('photos/gandu.jpg', 'Bhumika Nilesh Khade', '▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan-31st Jan 2024)')"
                     role="button" aria-label="View details for Bhumika Nilesh Khade">
-                    <img src="bhumika_khade.jpg">
+                    <img src="photos/gandu.jpg">
                     <h2>Bhumika Nilesh Khade</h2>
                     <p>Click for more details</p>
                 </div>
 
                 <!-- Player 4 -->
-                <div class="player-card" onclick="showPlayerDetails('IMG_20240824_171840.jpg', 'Ishwari Prakash Thakare', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec-18th Dec 2022)')"
+                <div class="player-card" onclick="showPlayerDetails('photos/IMG_20240824_171840.jpg', 'Ishwari Prakash Thakare', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec-18th Dec 2022)')"
                     role="button" aria-label="View details for Ishwari Prakash Thakare">
-                    <img src="IMG_20240824_171840.jpg">
+                    <img src="photos/IMG_20240824_171840.jpg">
                     <h2>Ishwari Prakash Thakare</h2>
                     <p>Click for more details</p>
                 </div>
 
                 <!-- Player 5 -->
-                <div class="player-card" onclick="showPlayerDetails('samiksha_chaudhary.jpg', 'Samiksha Ravindra Chaudhari', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec - 18th Dec 2022)')"
+                <div class="player-card" onclick="showPlayerDetails('photos/Samikasha.jpg', 'Samiksha Ravindra Chaudhari', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec - 18th Dec 2022)<br> ▪ 68th National School Games,Handball Girls U19, Ludihana, Punjab 2024-2025 (12th Dec- 17th Dec 2024)')"
                     role="button" aria-label="View details for Samiksha Ravindra Chaudhari">
-                    <img src="samiksha_chaudhary.jpg">
+                    <img src="photos/Samikasha.jpg">
                     <h2>Samiksha Ravindra Chaudhari</h2>
                     <p>Click for more details</p>
                 </div>
 
                 <!-- Player 6 -->
-                <div class="player-card" onclick="showPlayerDetails('utkarsha_musale.jpg', 'Utkarsha Rajesh Musale', '▪ 45th Junior Girls National Handball Championship, Bareilly, Uttar Pradesh (22nd Mar - 26th Mar 2023)<br>▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024')"
-                    role="button" aria-label="View details for Utkarsha Rajesh Musale">
-                    <img src="utkarsha_musale.jpg">
-                    <h2>Utkarsha Rajesh Musale</h2>
+                <div class="player-card" onclick="showPlayerDetails('photos/krushnali.jpg', 'Krushnali Patil', '▪ 68th National School Games,Handball Girls U17, Ludihana, Punjab 2024-2025 (10th Jan - 14th Jan 2025)')"
+                    role="button" aria-label="View details for Krushnali Patil">
+                    <img src="photos/krushnali.jpg">
+                    <h2>Krushnali Patil</h2>
                     <p>Click for more details</p>
                 </div>
 
                 <!-- Player 7 -->
-                <div class="player-card" onclick="showPlayerDetails('janhavi.jpg', 'Janhavi Amol Chaudhari', '▪ 67th National School Games 2023-2024, Handball Girls U17, Shajapur, Madhya Pradesh (16th Jan - 21st Jan)')"
+                <div class="player-card" onclick="showPlayerDetails('photos/janhavi.jpg', 'Janhavi Amol Chaudhari', '▪ 67th National School Games 2023-2024, Handball Girls U17, Shajapur, Madhya Pradesh (16th Jan - 21st Jan 2024)')"
                     role="button" aria-label="View details for Janhavi Amol Chaudhari">
-                    <img src="janhavi.jpg">
+                    <img src="photos/janhavi.jpg">
                     <h2>Janhavi Amol Chaudhari</h2>
                     <p>Click for more details</p>
                 </div>
 
-                <!-- Player 8 -->
-                <div class="player-card" onclick="showPlayerDetails('sakshi_surjuse.jpg', 'Sakshi Tulshiram Surjuse', '▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024)')"
-                    role="button" aria-label="View details for Sakshi Tulshiram Surjuse">
-                    <img src="sakshi_surjuse.jpg">
-                    <h2>Sakshi Tulshiram Surjuse</h2>
-                    <p>Click for more details</p>
-                </div>
+                 <!-- Player 7 -->
+                <div class="player-card" onclick="showPlayerDetails('photos/munde.jpg', 'Dhyaneshwari Munde', '▪ 68th National School Games 2024-2025, Handball Girls U14, Tamilnadu (25th Nov- 29th Nov 2024)')"
+                role="button" aria-label="View details for Dhyaneshwari Munde">
+                <img src="photos/munde.jpg">
+                <h2>Dhyaneshwari Munde</h2>
+                <p>Click for more details</p>
+            </div>
+
+            <div class="player-card" onclick="showPlayerDetails('photos/siddhi.jpg', 'Siddhi Brahmanand Raut', '▪ 17th HFI Mini Boys and Girls National Handball Championship, Hyderabad, Telangana (26th Sep - 29th Sep 2025)')"
+                role="button" aria-label="View details for Dhyaneshwari Munde">
+                <img src="photos/siddhi.jpg">
+                <h2>Siddhi Brahmanand Raut</h2>
+                <p>Click for more details</p>
+            </div>
 
                 <!-- Add more players for women here -->
             </div>
+        </div>
+    </section>
 
+    <section class="state-players">
+        <div class="container">
+            <h1>Our State Players</h1>
+
+            <!-- Men Section -->
+            <div class="player-section">
+                <h2 onclick="toggleSection('state-men')">Men</h2>
+                <div id="state-men" class="player-list">
+                    <!-- Add state men player cards here -->
+                    <div class="player-card" onclick="showPlayerDetails('prasad.jpg', 'Prasad Rameshwar Mahulkar', ' ▪ 43rd Junior boys Maharashtra state Handball Championship ,Wardha  Maharashtra 2023-24 from 26th to 28th January 2024')"
+                        role="button" aria-label="View details for State Player 1">
+                        <img src="photos/prasad.jpg">
+                        <h2>Prasad Rameshwar Mahulkar</h2>
+                        <p>Click for more details</p>
+                    </div>
+                        <!-- Add state men player cards here -->
+                        <div class="player-card" onclick="showPlayerDetails('Gitesh.jpg', 'Gitesh Bramhanand Raut', ' ▪ 43rd Junior boys Maharashtra state Handball Championship ,Wardha  Maharashtra 2023-24 from 26th to 28th January 2024 <br> ▪ School Game State Championship Under 14 2022-23 , Palaghar')"
+                            role="button" aria-label="View details for State Player 1">
+                            <img src="photos/Gitesh.jpg">
+                            <h2>Gitesh Bramhanand Raut</h2>
+                            <p>Click for more details</p>
+                        </div>
+
+                    <!-- Add more state men players here -->
+                </div>
+            </div>
+
+            <!-- Women Section -->
+            <div class="player-section">
+                <h2 onclick="toggleSection('state-women')">Women</h2>
+                <div id="state-women" class="player-list">
+                    <!-- Add state women player cards here -->
+                    <div class="player-card" onclick="showPlayerDetails('state_player2.jpg', 'State Player 2', 'Details about State Player 2')"
+                        role="button" aria-label="View details for State Player 2">
+                        <img src="state_player2.jpg">
+                        <h2>State Player 2</h2>
+                        <p>Click for more details</p>
+                    </div>
+
+                    <!-- Add more state women players here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="university-players">
+        <div class="container">
+            <h1>Our University Players</h1>
+
+            <!-- Men Section -->
+            <div class="player-section">
+                <h2 onclick="toggleSection('university-men')">Men</h2>
+                <div id="university-men" class="player-list">
+                    <!-- Add university men player cards here -->
+                    <div class="player-card" onclick="showPlayerDetails('photos/yuraj.jpg', 'Yuvraj Jagdish Gupta', '▪ School State 1st Place Nagpur Manakapur Stadium 21/1/2023 <br> ▪ Sant gadge Baba amaravati University Colour Cort Holder During Year 2022-2023 <br> ▪ West zone inter-university tournament held at University of madaya pradash Sagar University -23/02/2024')"
+                        role="button" aria-label="View details for Yuraj Jagdish Gupta">
+                    <img src="photos/yuraj.jpg">
+                    <h2>Yuvraj Jagdish Gupta</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <div class="player-card" onclick="showPlayerDetails('photos/subam.jpg', 'Subhan Chand Munniwale', '▪ <br> ▪ Sant gadge Baba amaravati University Colour Cort Holder During Year 2023-2024 <br> ▪ West Zone Inter-University tournament held at Dr Hari Singh Gaur Sagar, Madhya Pradesh (11th Jan - 13th Jan 2024)')"
+                    role="button" aria-label="View details for Yuraj Jagdish Gupta">
+                <img src="photos/subam.jpg">
+                <h2>Subhan Chand Munniwale</h2>
+                <p>Click for more details</p>
+            </div>
+
+                    <!-- Add more university men players here -->
+                </div>
+            </div>
+
+            <!-- Women Section -->
+            <div class="player-section">
+                <h2 onclick="toggleSection('university-women')">Women</h2>
+                <div id="university-women" class="player-list">
+                    <!-- Add university women player cards here -->
+                    <div class="player-card" onclick="showPlayerDetails('photos/sanjyot.jpg', 'Sanjyot Rajesh Chipade', '▪ University West Zone Handball Championship, Jaipur, Rajasthan (2021-2022)<br> ▪ University West Zone Handball Championship, Sagar, Madhya Pradesh (2022-2023)')"
+                        role="button" aria-label="View details for University Player 2">
+                        <img src="photos/sanjyot.jpg">
+                        <h2>Sanjyot Rajesh Chipade</h2>
+                        <p>Click for more details</p>
+                    </div>
+
+
+                    <div class="player-card" onclick="showPlayerDetails('photos/sakshimatode.jpg', 'Sakshi Dattatray Matode', '▪ West Zone Inter University Women Handball  Tournament, Udaipur, Rajasthan (19th - 23rd January 2024)<br>▪ 2nd place at West Zone Inter University Women Handball  Tournament, Jaipur Rajasthan (12 to 16 January 2025) and qualified for all India University Handball Championshiop 2025')"
+                        role="button" aria-label="View details for Sakshi Dattatray Matode">
+                        <img src="photos/sakshimatode.jpg">
+                        <h2>Sakshi Dattatraya Matode</h2>
+                        <p>Click for more details</p>
+                    </div>
+                    <!-- Add more university women players here -->
+                </div>
+            </div>
         </div>
     </section>
 
@@ -253,14 +602,14 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
-            <p>Designed by Anway Chaware</p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
         function toggleSection(sectionId) {
             const section = document.getElementById(sectionId);
+            if (!section) return;
             if (section.style.display === 'none' || section.style.display === '') {
                 section.style.display = 'block';
             } else {
@@ -269,7 +618,11 @@
         }
 
         function showPlayerDetails(imgSrc, name, details) {
-            document.getElementById('overlay-img').src = imgSrc;
+            const imgEl = document.getElementById('overlay-img');
+            imgEl.onerror = function() {
+                this.src = 'photos/handballlogo.jpg';
+            };
+            imgEl.src = imgSrc;
             document.getElementById('overlay-name').innerText = name;
             document.getElementById('overlay-details').innerHTML = details;
 
@@ -281,7 +634,14 @@
             const overlay = document.getElementById('overlay');
             overlay.style.display = 'none';
         }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('img').forEach(img => {
+                img.addEventListener('error', function() {
+                    this.src = 'photos/handballlogo.jpg';
+                });
+            });
+        });
     </script>
 </body>
-
 </html>

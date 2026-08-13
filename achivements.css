@@ -110,6 +110,13 @@ nav ul li a:hover {
     font-size: 2em;
     margin-bottom: 10px;
     color: #c70039;
+    cursor: pointer;
+}
+
+.player-section h2 {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
 }
 
 .player-card p {
@@ -153,5 +160,457 @@ footer p {
 
     .player-card img {
         margin-bottom: 15px;
+    }
+
+    .container {
+        width: 95%;
+    }
+
+    /* Header and Navigation */
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px;
+        font-size: 1.1em;
+    }
+
+    /* Achievements Sections */
+    .achievements,
+    .national-players,
+    .state-players,
+    .university-players {
+        padding: 30px 15px;
+        margin-top: 15px;
+    }
+
+    .achievements h1,
+    .national-players h1,
+    .state-players h1,
+    .university-players h1 {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+
+    /* Player Cards */
+    .player-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .player-card img {
+        width: 120px;
+        height: 120px;
+        margin: 0 0 15px 0;
+    }
+
+    .player-card h2 {
+        font-size: 1.5em;
+    }
+
+    .player-card p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+}
+
+/* Extra Small Devices */
+@media (max-width: 480px) {
+    .container {
+        width: 100%;
+    }
+
+    .achievements h1,
+    .national-players h1,
+    .state-players h1,
+    .university-players h1 {
+        font-size: 1.8em;
+    }
+
+    .player-card {
+        margin: 10px 5px;
+    }
+
+    .player-card img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .player-card h2 {
+        font-size: 1.3em;
+    }
+
+    footer {
+        padding: 15px 0;
+        font-size: 0.9em;
+    }
+}
+
+/* State and University Players Section */
+.state-players,
+.university-players {
+    background-color: #ffc3a0;
+    /* Matching background color with the national players */
+    padding: 50px 20px;
+    margin-top: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.state-players h1,
+.university-players h1 {
+    font-size: 3em;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #c70039;
+    text-shadow: 2px 2px #f9f9f9;
+}
+
+/* Ensuring .player-card is styled consistently */
+.player-card {
+    background-color: #f5f5f5;
+    border: 3px solid #ff5733;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 30px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+}
+
+.player-card:hover {
+    transform: scale(1.05);
+}
+
+.player-card img {
+    border-radius: 6%;
+    width: 150px;
+    height: 150px;
+    margin-right: 25px;
+    object-fit: cover;
+    border: 5px solid #ffbd69;
+}
+
+.player-card h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #000dc7;
+}
+
+.player-card p {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin: 5px 0;
+    color: #555;
+}
+
+/* Responsive Design Adjustments */
+@media (max-width: 768px) {
+
+    .state-players,
+    .university-players {
+        padding: 20px;
+    }
+
+    .player-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .player-card img {
+        margin-bottom: 15px;
+    }
+}
+
+/* Medal Tally Table Styling */
+/* Medal Tally Section Background Color */
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+
+    /* General Container */
+    .container {
+        width: 95%;
+        padding: 10px;
+    }
+
+    /* Navigation */
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+
+    nav ul li {
+        margin: 8px 0;
+    }
+
+    /* Medal Section */
+    .medal-section {
+        padding: 20px 10px;
+    }
+
+    .medal-box {
+        min-width: 80%;
+        margin: 10px 0;
+    }
+
+    .medal-title {
+        font-size: 1.2em;
+    }
+
+    .medal-table {
+        font-size: 0.9em;
+    }
+
+    /* Player Cards */
+    .player-card {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .player-card img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .player-card h2 {
+        font-size: 1.2em;
+    }
+
+    /* Overlay Content */
+    .overlay-content {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .overlay-content img {
+        max-width: 200px;
+    }
+
+    .overlay-content h2 {
+        font-size: 1.5em;
+    }
+
+    .overlay-content p {
+        font-size: 1em;
+    }
+
+    /* Section Headers */
+    .achievements h1,
+    .national-players h1,
+    .state-players h1,
+    .university-players h1 {
+        font-size: 1.8em;
+        padding: 10px 0;
+    }
+
+    /* Player Sections */
+    .player-section h2 {
+        font-size: 1.4em;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+    .medal-table {
+        font-size: 0.8em;
+    }
+
+    .player-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .player-card h2 {
+        font-size: 1.1em;
+    }
+
+    .overlay-content img {
+        max-width: 150px;
+    }
+
+    .overlay-content h2 {
+        font-size: 1.3em;
+    }
+
+    .close {
+        top: 5px;
+        right: 10px;
+    }
+}
+
+/* Responsive Table Styles */
+@media screen and (max-width: 768px) {
+    .medal-table {
+        width: 100%;
+        max-width: 100%;
+        display: block;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .medal-table table {
+        width: 100%;
+        min-width: 300px;
+        margin: 0;
+    }
+
+    .medal-table th,
+    .medal-table td {
+        padding: 8px;
+        font-size: 0.9em;
+        white-space: nowrap;
+    }
+
+    /* Optional: Add visual indicator for scrollable tables */
+    .medal-table::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .medal-table::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .medal-table::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 3px;
+    }
+}
+
+/* Extra Small Devices */
+@media screen and (max-width: 480px) {
+
+    .medal-table th,
+    .medal-table td {
+        padding: 6px;
+        font-size: 0.8em;
+    }
+}
+
+/* Medal Tally Responsive Heading */
+@media screen and (max-width: 768px) {
+    .medal-title {
+        font-size: 1.2em;
+        padding: 10px;
+        text-align: center;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
+        max-width: 100%;
+    }
+
+    .medal-section h2 {
+        font-size: 1.4em;
+        padding: 10px;
+        text-align: center;
+        word-wrap: break-word;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .medal-title {
+        font-size: 1em;
+        padding: 8px;
+    }
+
+    .medal-section h2 {
+        font-size: 1.2em;
+        padding: 8px;
+    }
+}
+
+/* Player Section Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .player-section {
+        padding: 15px;
+    }
+
+    .player-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .player-card {
+        width: 90%;
+        max-width: 300px;
+        margin: 10px 0;
+        padding: 10px;
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .player-card img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+    }
+
+    .player-card h2 {
+        font-size: 1.1em;
+        margin: 8px 0;
+    }
+
+    .player-card p {
+        font-size: 0.9em;
+    }
+
+    /* Overlay adjustments for mobile */
+    .overlay-content {
+        width: 95%;
+        max-height: 80vh;
+        padding: 15px;
+    }
+
+    .overlay-content img {
+        width: 200px;
+        height: 200px;
+    }
+
+    .overlay-content h2 {
+        font-size: 1.2em;
+    }
+
+    .overlay-content p {
+        font-size: 0.9em;
+        line-height: 1.4;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .player-card {
+        width: 95%;
+    }
+
+    .player-card img {
+        width: 120px;
+        height: 120px;
+    }
+
+    .player-card h2 {
+        font-size: 1em;
+    }
+
+    .overlay-content img {
+        width: 150px;
+        height: 150px;
+    }
+
+    .overlay-content h2 {
+        font-size: 1.1em;
+    }
+
+    .overlay-content p {
+        font-size: 0.8em;
     }
 }

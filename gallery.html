@@ -1,75 +1,299 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery - Handball Club</title>
-    <link rel="stylesheet" href="gallery.css">
-    <style>
-        /* Basic styles for the gallery page */
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #e0f7fa; /* Light cyan background */
-            color: #333;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery - Handball Club</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            padding: 20px;
-        }
+    body {
+      font-family: "Poppins", Arial, sans-serif;
+      background: linear-gradient(135deg, #004e92, #000428);
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 10px;
-        }
+    .site-nav {
+      background: #002b52;
+      padding: 15px;
+      text-align: center;
+      border-bottom: 3px solid #ffcc29;
+    }
 
-        .gallery-grid img {
-            width: 100%;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-        }
+    .site-nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
 
-        .gallery-grid img:hover {
-            opacity: 0.8;
-        }
-    </style>
+    .site-nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .site-nav ul li a:hover {
+      background: #ffcc29;
+      color: #002b52;
+    }
+
+    .header {
+      background: rgba(0,0,0,0.6);
+      text-align: center;
+      padding: 2.5rem 1rem;
+    }
+
+    .header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 2px;
+      color: #ffcc29;
+    }
+
+    .header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .gallery-container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      text-align: center;
+      padding: 0 1rem;
+      flex: 1;
+    }
+
+    .gallery-container h2 {
+      font-size: 2rem;
+      color: #ffcc29;
+      margin-bottom: 0.5rem;
+    }
+
+    .gallery-container p {
+      margin-bottom: 2rem;
+      color: #eee;
+    }
+
+    /* Folders grid */
+    .folders {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      justify-items: center;
+      margin-bottom: 40px;
+    }
+
+    .folder {
+      width: 100%;
+      max-width: 240px;
+      height: 140px;
+      border-radius: 1rem;
+      background: #ffffff;
+      color: #004e92;
+      font-weight: bold;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.25);
+      transition: all 0.3s ease-in-out;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .folder::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(135deg, #ff6b35, #ffcc29);
+      transform: rotate(25deg);
+      transition: 0.5s;
+      z-index: 0;
+    }
+
+    .folder span {
+      position: relative;
+      z-index: 1;
+    }
+
+    .folder:hover::before {
+      top: 0;
+      left: 0;
+    }
+
+    .folder:hover {
+      color: white;
+      transform: translateY(-6px);
+    }
+
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .photo-card {
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
+      cursor: pointer;
+    }
+
+    .photo-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .photo-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .photo-card .caption {
+      padding: 12px;
+      font-size: 0.95rem;
+      color: #ffcc29;
+      font-weight: bold;
+    }
+
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 80vh;
+      border-radius: 10px;
+      border: 3px solid #ffcc29;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      font-size: 40px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    .footer {
+      background: rgba(0,0,0,0.8);
+      color: #bbb;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      margin-top: auto;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <nav>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="aboutus.html">About Us</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="achivements.html">Achievements</a></li>
-                    <li><a href="vision.html">Vision</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                    <li><a href="application.html">Application</a></li>
-                </ul>
-            </nav>
-        </div>
-    </header>
+  <nav class="site-nav">
+    <ul>
+      <li><a href='home.html'>Home</a></li>
+      <li><a href='aboutus.html'>About Us</a></li>
+      <li><a href='vision.html'>Vision</a></li>
+      <li><a href='achivements.html'>Achievements</a></li>
+      <li><a href='tournament.html'>Tournaments</a></li>
+      <li><a href='news.html'>News</a></li>
+      <li><a href='gallery.html'>Gallery</a></li>
+      <li><a href='contact.html'>Contact</a></li>
+      <li><a href='application.html'>Application</a></li>
+    </ul>
+  </nav>
 
-    <div class="container">
-        <h1>Gallery</h1>
-        <div class="gallery-grid">
-            <img src="slide1.jpg" alt="Image 1">
-            <img src="slide2.jpg" alt="Image 2">
-            <img src="slide3.jpg" alt="Image 3">
-            <!-- Add more images as needed -->
-        </div>
+  <header class="header">
+    <h1>Photo & Video Gallery</h1>
+    <p>Memories that inspire our handball journey</p>
+  </header>
+
+  <main class="gallery-container">
+    <h2>Gallery Folders</h2>
+    <p>Click on any folder to view event photo collections:</p>
+
+    <div class="folders">
+      <a class='folder' href='tournament.html'><span>Tournament</span></a>
+      <a class='folder' href='practice.html'><span>Practice</span></a>
+      <a class='folder' href='diwali-celebration.html'><span>Diwali</span></a>
+      <a class='folder' href='national-tournament.html'><span>National Tournament</span></a>
+      <a class='folder' href='dasara.html'><span>Dasara</span></a>
+      <a class='folder' href='birthday.html'><span>Birthday</span></a>
     </div>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
-            <p>Designed by Anway Chaware</p>
-        </div>
-    </footer>
+    <h2>Featured Highlights</h2>
+    <div class="photo-grid">
+      <div class="photo-card" onclick="openLightbox('photos/handballlogo.jpg', 'District Handball Championship')">
+        <img src="photos/handballlogo.jpg" alt="Tournament" onerror="this.src='photos/logo.jpg'">
+        <div class="caption">District Championship</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox('photos/WhatsApp Image 2024-08-22 at 19.53.19_3bebc921.jpg', 'Daily Practice & Fitness Camp')">
+        <img src="photos/WhatsApp Image 2024-08-22 at 19.53.19_3bebc921.jpg" alt="Practice" onerror="this.src='photos/handballlogo.jpg'">
+        <div class="caption">Practice & Conditioning</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox('photos/WhatsApp Image 2024-08-23 at 19.53.46_91c87cf9.jpg', 'State Level Handball Tournament')">
+        <img src="photos/WhatsApp Image 2024-08-23 at 19.53.46_91c87cf9.jpg" alt="State Tournament" onerror="this.src='photos/handballlogo.jpg'">
+        <div class="caption">State Tournament</div>
+      </div>
+      <div class="photo-card" onclick="openLightbox('photos/WhatsApp Image 2024-08-23 at 22.39.29_21e0e929.jpg', 'Felicitation & Victory Ceremony')">
+        <img src="photos/WhatsApp Image 2024-08-23 at 22.39.29_21e0e929.jpg" alt="Celebration" onerror="this.src='photos/handballlogo.jpg'">
+        <div class="caption">Victory Ceremony</div>
+      </div>
+    </div>
+  </main>
+
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="lightbox-close">&times;</span>
+    <img id="lightbox-img" src="" alt="Zoomed Photo">
+    <p id="lightbox-caption" style="margin-top:15px; font-size:1.2rem; color:#ffcc29;"></p>
+  </div>
+
+  <footer class="footer">
+    <p>&copy; <script>document.write(new Date().getFullYear())</script> Shree Sant Gajanan Maharaj Handball Club</p>
+    <p>Designed with passion for the love of handball.</p>
+  </footer>
+
+  <script>
+    function openLightbox(src, caption) {
+      const lightbox = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      const cap = document.getElementById('lightbox-caption');
+      img.onerror = function() { this.src = 'photos/handballlogo.jpg'; };
+      img.src = src;
+      cap.innerText = caption;
+      lightbox.style.display = 'flex';
+    }
+
+    function closeLightbox() {
+      document.getElementById('lightbox').style.display = 'none';
+    }
+  </script>
 </body>
 </html>

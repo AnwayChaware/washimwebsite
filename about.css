@@ -3,8 +3,10 @@ body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #e0f7fa;
-    color: #333;
+    background-color: #e3f2fd;
+    /* Soft sky blue */
+    color: #1a237e;
+    /* Deep navy blue */
 }
 
 .container {
@@ -15,21 +17,14 @@ body {
 
 /* Header and Navigation */
 header {
-    background-color: #00695c;
-    color: #fff;
+    background-color: #1e88e5;
+    /* Bright blue */
+    color: #e3f2fd;
+    /* Soft sky blue */
     padding: 20px 0;
-    border-bottom: 5px solid #00897b;
+    border-bottom: 5px solid #0d47a1;
+    /* Deep blue */
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
-}
-
-.logo {
-    display: block;
-    margin: 0 auto 20px;
-    border-radius: 50%;
-    width: 150px;
-    height: 150px;
-    object-fit: cover;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -46,7 +41,8 @@ nav ul li {
 }
 
 nav ul li a {
-    color: #fff;
+    color: #e3f2fd;
+    /* Soft sky blue */
     text-decoration: none;
     font-weight: bold;
     padding: 10px 20px;
@@ -55,12 +51,16 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-    background-color: #00897b;
+    background-color: #90caf9;
+    /* Light blue */
+    color: #0d47a1;
+    /* Deep blue */
 }
 
 /* About Section */
 .about {
-    background-color: #b2dfdb;
+    background-color: #e3f2fd;
+    /* Soft sky blue */
     padding: 50px 20px;
     margin-top: 20px;
     border-radius: 15px;
@@ -70,22 +70,25 @@ nav ul li a:hover {
 .about h1 {
     font-size: 3em;
     margin-bottom: 30px;
-    color: #00695c;
-    text-shadow: 2px 2px #fff;
+    color: #1e88e5;
+    /* Bright blue */
+    text-shadow: 2px 2px #bbdefb;
+    /* Light blue shadow */
 }
 
 .about p {
     font-size: 1.2em;
     line-height: 1.6;
     margin-bottom: 20px;
-    color: #444;
-    /*text-align: justify;*/
+    color: #1a237e;
+    /* Deep navy blue */
 }
 
 .about h2 {
     font-size: 2.5em;
     margin-bottom: 20px;
-    color: #004d40;
+    color: #1565c0;
+    /* Medium blue */
 }
 
 .about ul {
@@ -96,21 +99,27 @@ nav ul li a:hover {
 .about ul li {
     font-size: 1.5em;
     margin-bottom: 15px;
-    color: #333;
+    color: #1a237e;
+    /* Deep navy blue */
+    text-align: left;
 }
 
 .about ul li strong {
-    color: #00796b;
+    color: #0d47a1;
+    /* Deep blue */
 }
 
 /* Footer */
 footer {
-    background-color: #004d40;
-    color: #fff;
+    background-color: #0d47a1;
+    /* Deep blue */
+    color: #e3f2fd;
+    /* Soft sky blue */
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
-    border-top: 8px solid #00796b;
+    border-top: 8px solid #1e88e5;
+    /* Bright blue */
     box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -120,12 +129,80 @@ footer p {
 
 /* Responsive Design */
 @media (max-width: 768px) {
+
+    /* Navigation */
     nav ul {
         text-align: center;
+        padding: 0;
     }
 
     nav ul li {
         display: block;
         margin: 10px 0;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    /* About Section */
+    .about {
+        padding: 30px 10px;
+    }
+
+    .about h1 {
+        font-size: 2em;
+    }
+
+    .about h2 {
+        font-size: 1.8em;
+    }
+
+    .about p {
+        font-size: 1em;
+        line-height: 1.4;
+    }
+
+    .about ul li {
+        font-size: 1.2em;
+    }
+
+    /* Footer */
+    footer {
+        padding: 15px 10px;
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+
+    /* Navigation */
+    nav ul li a {
+        font-size: 1em;
+        padding: 10px;
+    }
+
+    /* About Section */
+    .about h1 {
+        font-size: 1.8em;
+    }
+
+    .about h2 {
+        font-size: 1.5em;
+    }
+
+    .about p {
+        font-size: 0.9em;
+    }
+
+    .about ul li {
+        font-size: 1em;
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.8em;
     }
 }

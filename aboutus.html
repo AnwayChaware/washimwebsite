@@ -5,49 +5,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Handball Club - About Us</title>
     <link rel="stylesheet" href="about.css">
+    <style>
+        .hamburger {
+            display: none;
+            font-size: 2em;
+            cursor: pointer;
+            color: #FFD700;
+            padding: 10px;
+            background-color: #003366;
+            border-radius: 5px;
+        }
+
+        .close-btn {
+            display: none;
+            font-size: 1.8em;
+            color: #FFD700;
+            cursor: pointer;
+            align-self: flex-end;
+            margin-bottom: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #003366;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                z-index: 1000;
+            }
+
+            .nav-links.show {
+                display: flex;
+            }
+
+            .close-btn {
+                display: block;
+            }
+        }
+    </style>
 </head>
 <body>
     <header>
         <div class="container">
-            <img src="./WhatsApp Image 2024-08-22 at 19.53.19_3bebc921.jpg"class="logo">
             <nav>
-                <ul>
-                    <li><a href="home.html">Home</a></li>
-                    <li><a href="news.html">News</a></li>
-                    <li><a href="vision.html">Vision</a></li>
-                    <li><a href="achivements.html">Achievements</a></li>
-                    <li><a href="contact.html">Contact Us</a></li>
-                    <li><a href="application.html">Application</a></li>
+                <div class="hamburger" onclick="toggleMenu()">&#9776; Menu</div>
+                <ul class="nav-links">
+                    <span class="close-btn" onclick="toggleMenu()">&times;</span>
+                    <img src="photos/WhatsApp Image 2024-08-22 at 19.53.19_3bebc921.jpg" alt="Logo" style="height:70px;width:70px;border-radius:50%;" onerror="this.src='photos/handballlogo.jpg'">
+                    <li><a href='home.html'>Home</a></li>
+                    <li><a href='aboutus.html'>About Us</a></li>
+                    <li><a href='vision.html'>Vision</a></li>
+                    <li><a href='achivements.html'>Achievements</a></li>
+                    <li><a href='tournament.html'>Tournaments</a></li>
+                    <li><a href='news.html'>News</a></li>
+                    <li><a href='gallery.html'>Gallery</a></li>
+                    <li><a href='contact.html'>Contact</a></li>
+                    <li><a href='application.html'>Application</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <section class="about">
-        <div class="container">
-            <h1>About Us</h1>
-            <p>Welcome to the Shree Santa Gajanan Maharaja Handball Club! We are dedicated to promoting the sport of handball and fostering talent at all levels. Our club is a vibrant community of players, coaches, and supporters who share a passion for the game.</p>
+    <div class="container">
+        <section class="about">
+            <h1>About Our Handball Club</h1>
+            <p>
+                <strong>Shree Sant Gajanan Maharaj Handball Club Karanja (Lad), Washim</strong> is a premier sports institution dedicated to promoting the sport of handball across Washim District and Maharashtra state. Registered under Regt. MAHARASHTRA 383/2013 F 7817 WASHIM, the club works tirelessly to identify, train, and empower aspiring youth in sports.
+            </p>
+            <p>
+                Affiliated with the <strong>Handball Association of Maharashtra</strong> and the <strong>Handball Federation of India (HFI)</strong>, our organization provides state-of-the-art coaching, professional infrastructure, and competition opportunities for players across all age categories — from Sub-Junior and Junior to Senior National levels.
+            </p>
 
-            <h2>Our History</h2>
-            <p>Founded in 15 Aug-2013, our club has a rich history of success and growth. From our humble beginnings to becoming a recognized name in handball, we have always aimed to provide top-notch training and opportunities for players of all ages.</p>
-
-            <h2>Our Mission</h2>
-            <p>Our mission is to develop skilled and passionate handball players while promoting sportsmanship, teamwork, and a healthy lifestyle. We strive to create a positive and inclusive environment where every member can thrive and achieve their full potential.</p>
-
-            <h2>Our Values</h2>
+            <h2>Key Objectives & Focus Areas</h2>
             <ul>
-                <li><strong>Excellence:</strong> We are committed to achieving the highest standards in every aspect of the game.</li>
-                <li><strong>Integrity:</strong> We believe in fair play and honesty on and off the court.</li>
-                <li><strong>Respect:</strong> We value the contributions of every individual and foster a supportive environment.</li>
-                <li><strong>Community:</strong> We aim to build strong connections and a sense of belonging among our members.</li>
+                <li><strong>Grassroots Development:</strong> Training school and college students in fundamental handball skills and fitness.</li>
+                <li><strong>Inclusivity & Empowerment:</strong> Inspiring players of every gender, age group, and rural background to excel on national and state platforms.</li>
+                <li><strong>Excellence & Discipline:</strong> Cultivating sportsmanship, leadership, and physical conditioning through regular coaching camps.</li>
+                <li><strong>National Representation:</strong> Nurturing talented athletes to represent Maharashtra and India in national championships.</li>
             </ul>
-        </div>
-    </section>
+
+            <h2>Club Leadership & Guidance</h2>
+            <p>
+                Under the leadership of President Shree Devendra Patil Tathode, Vice President Shree Vijay Patil Kale, Treasurer Shree Darshan Rokade, Secretary Shree Rahul Gawande, and Technical Head Engr Anway Amit Chaware, our institution continues to achieve milestones at state and national tournaments.
+            </p>
+        </section>
+    </div>
 
     <footer>
         <div class="container">
-            <p>&copy; 2024 Shree Santa Gajanan Maharaja Handball Club. All rights reserved.</p>
+            <p>&copy; <script>document.write(new Date().getFullYear())</script> Shree Sant Gajanan Maharaj Handball Club. All Rights Reserved.</p>
         </div>
     </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks) {
+                navLinks.classList.toggle('show');
+            }
+        }
+    </script>
 </body>
 </html>

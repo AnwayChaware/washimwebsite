@@ -17,6 +17,7 @@ header {
     background-color: #262261;
     color: #876581;
     padding: 10px 0;
+    width: 100;
 }
 
 nav ul {
@@ -24,7 +25,8 @@ nav ul {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    text-align: right;
+    text-align: left;
+    width: 100vw;
 }
 
 nav ul li {

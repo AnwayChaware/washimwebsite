@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali Celebration - Gallery</title>
+    <link rel="stylesheet" href="gallery.css">
+    <style>
+        /* General Body Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('path/to/your/diwali-background.jpg'); /* Add the path to your Diwali background image */
+            background-size: cover; /* Cover the entire viewport */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent the background image from repeating */
+            background-attachment: fixed; /* Keep the background image fixed while scrolling */
+        }
+
+        /* Container for the gallery */
+        .gallery-container {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background for readability */
+            border-radius: 15px; /* Rounded corners for the container */
+        }
+
+        /* Title Styles */
+        h1 {
+            color: #333; /* Dark gray color for text */
+            margin-bottom: 30px;
+        }
+
+        /* Image and Video Gallery Styles */
+        .image-gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .image-gallery img, .image-gallery video {
+            width: 300px; /* Set image/video width */
+            height: auto;
+            border-radius: 10px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: subtle shadow */
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer; /* Add cursor pointer for clickable images/videos */
+        }
+
+        .image-gallery img:hover, .image-gallery video:hover {
+            transform: scale(1.05); /* Optional: zoom effect on hover */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); /* Optional: stronger shadow on hover */
+        }
+
+        /* Style for the lightbox overlay */
+        .lightbox {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Dim the background */
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+        }
+
+        .lightbox img, .lightbox video {
+            width: -webkit-fill-available;
+            border-radius: 10px; /* Optional: rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5); /* Optional: shadow around the enlarged content */
+        }
+
+        .lightbox .prev, .lightbox .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 50%;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox .prev {
+            left: 10px;
+        }
+
+        .lightbox .next {
+            right: 10px;
+        }
+
+        .lightbox .prev:hover, .lightbox .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Style for the footer */
+        footer {
+            background-color: #333; /* Dark background color for the footer */
+            color: #fff; /* White text color */
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid #444; /* Optional: add border to the top of the footer */
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        footer p {
+            margin: 5px 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <!-- Navigation links -->
+        </nav>
+    </header>
+
+    <div class="gallery-container">
+        <h1>Diwali Celebration Gallery</h1>
+        <div class="image-gallery">
+            <!-- Example images and videos; adjust src paths to match your files -->
+            <img src="diwali celebration/1.jpg" onclick="openLightbox('diwali celebration/1.jpg')">
+            <img src="diwali celebration/5.jpg" onclick="openLightbox('diwali celebration/5.jpg')">
+            <img src="diwali celebration/6.jpg" onclick="openLightbox('diwali celebration/6.jpg')">
+            <img src="diwali celebration/7.jpg" onclick="openLightbox('diwali celebration/7.jpg')">
+            <img src="diwali celebration/8.jpg" onclick="openLightbox('diwali celebration/8.jpg')">
+            <video src="diwali celebration/1.mp4" onclick="openLightbox('diwali celebration/1.mp4')"></video>
+            <img src="diwali celebration/9.jpg" onclick="openLightbox('diwali celebration/9.jpg')">
+            <img src="diwali celebration/10.jpg" onclick="openLightbox('diwali celebration/10.jpg')">
+            <img src="diwali celebration/11.jpg" onclick="openLightbox('diwali celebration/11.jpg')">
+            <img src="diwali celebration/12.jpg" onclick="openLightbox('diwali celebration/12.jpg')">
+            <img src="diwali celebration/13.jpg" onclick="openLightbox('diwali celebration/13.jpg')">
+            <img src="diwali celebration/14.jpg" onclick="openLightbox('diwali celebration/14.jpg')">
+            <img src="diwali celebration/15.jpg" onclick="openLightbox('diwali celebration/15.jpg')">
+            <img src="diwali celebration/16.jpg" onclick="openLightbox('diwali celebration/16.jpg')">
+            <img src="diwali celebration/17.jpg" onclick="openLightbox('diwali celebration/17.jpg')">
+            <img src="diwali celebration/18.jpg" onclick="openLightbox('diwali celebration/18.jpg')">
+            <img src="diwali celebration/19.jpg" onclick="openLightbox('diwali celebration/19.jpg')">
+            <img src="diwali celebration/20.jpg" onclick="openLightbox('diwali celebration/20.jpg')">
+            <img src="diwali celebration/21.jpg" onclick="openLightbox('diwali celebration/21.jpg')">
+            <img src="diwali celebration/22.jpg" onclick="openLightbox('diwali celebration/22.jpg')">
+            <img src="diwali celebration/23.jpg" onclick="openLightbox('diwali celebration/23.jpg')">
+            <img src="diwali celebration/24.jpg" onclick="openLightbox('diwali celebration/24.jpg')">
+            <img src="diwali celebration/25.jpg" onclick="openLightbox('diwali celebration/25.jpg')">
+            <img src="diwali celebration/26.jpg" onclick="openLightbox('diwali celebration/26.jpg')">
+            <img src="diwali celebration/27.jpg" onclick="openLightbox('diwali celebration/27.jpg')">
+            <img src="diwali celebration/28.jpg" onclick="openLightbox('diwali celebration/28.jpg')">
+            <img src="diwali celebration/29.jpg" onclick="openLightbox('diwali celebration/29.jpg')">
+            <img src="diwali celebration/30.jpg" onclick="openLightbox('diwali celebration/30.jpg')">
+            <img src="diwali celebration/31.jpg" onclick="openLightbox('diwali celebration/31.jpg')">
+            <img src="diwali celebration/32.jpg" onclick="openLightbox('diwali celebration/32.jpg')">
+            <img src="diwali celebration/33.jpg" onclick="openLightbox('diwali celebration/33.jpg')">
+            <!-- Add more images/videos as needed -->
+        </div>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Lightbox Image">
+            <video id="lightbox-video" src="" controls></video>
+        </div>
+        <span class="next" onclick="changeSlide(1)">&#10095;</span>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <p>&copy; <script>document.write(new Date().getFullYear())</script>
+      Shree Sant Gajanan Maharaj Handball Club. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+        const media = [
+        'diwali celebration/1.jpg',
+            'diwali celebration/5.jpg',
+            'diwali celebration/6.jpg',
+            'diwali celebration/7.jpg',
+            'diwali celebration/1.mp4',
+            'diwali celebration/8.jpg',
+            'diwali celebration/9.jpg',
+            'diwali celebration/10.jpg',
+            'diwali celebration/11.jpg',
+            'diwali celebration/12.jpg',
+            'diwali celebration/13.jpg',
+            'diwali celebration/14.jpg',
+            'diwali celebration/15.jpg',
+            'diwali celebration/16.jpg',
+            'diwali celebration/17.jpg',
+            'diwali celebration/18.jpg',
+            'diwali celebration/19.jpg',
+            'diwali celebration/20.jpg',
+            'diwali celebration/21.jpg',
+            'diwali celebration/22.jpg',
+            'diwali celebration/23.jpg',
+            'diwali celebration/24.jpg',
+            'diwali celebration/25.jpg', 
+            'diwali celebration/26.jpg',
+            'diwali celebration/27.jpg',
+            'diwali celebration/28.jpg',
+            'diwali celebration/29.jpg',
+            'diwali celebration/30.jpg', 
+            'diwali celebration/31.jpg',
+            'diwali celebration/32.jpg',
+            'diwali celebration/33.jpg',
+        ];
+
+        function openLightbox(src) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxVideo = document.getElementById('lightbox-video');
+            if (src.endsWith('.mp4')) {
+                lightboxVideo.src = src;
+                lightboxVideo.style.display = 'block';
+                lightboxImg.style.display = 'none';
+            } else {
+                lightboxImg.src = src;
+                lightboxImg.style.display = 'block';
+                lightboxVideo.style.display = 'none';
+            }
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+            currentIndex = media.indexOf(src);
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.getElementById('lightbox-img').src = '';
+            document.getElementById('lightbox-video').src = '';
+        }
+
+        function changeSlide(n) {
+            currentIndex += n;
+            if (currentIndex >= media.length) { currentIndex = 0; }
+            if (currentIndex < 0) { currentIndex = media.length - 1; }
+            openLightbox(media[currentIndex]);
+        }
+
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+        if (document.getElementById('lightbox').style.display === 'flex') {
+            if (e.key === 'ArrowLeft') {
+                changeSlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeSlide(1);
+            } else if (e.key === 'Escape') {
+                closeLightbox(); // Also close with Esc key
+            }
+        }
+    });
+    </script>
+</body>
+</html>
