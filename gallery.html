@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery - Handball Club</title>
+    <link rel="stylesheet" href="gallery.css">
+    <style>
+        /* Basic styles for the gallery page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f7fa; /* Light cyan background */
+            color: #333;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        .gallery-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            cursor: pointer;
+        }
+
+        .gallery-grid img:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="achivements.html">Achievements</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="application.html">Application</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Gallery</h1>
+        <div class="gallery-grid">
+            <img src="slide1.jpg" alt="Image 1">
+            <img src="slide2.jpg" alt="Image 2">
+            <img src="slide3.jpg" alt="Image 3">
+            <!-- Add more images as needed -->
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
+            <p>Designed by Anway Chaware</p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,117 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #e0f7fa; /* Light cyan background */
+}
+
+/* Container */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #d32f2f; /* Red color */
+    margin-bottom: 10px;
+}
+
+header h2 {
+    font-size: 1.5em;
+    color: #1976d2; /* Blue color */
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #00796b; /* Teal color */
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    color: #c2185b; /* Pink color */
+}
+
+/* Mission Section */
+.mission {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mission h3 {
+    color: #8e24aa; /* Purple color */
+    margin-bottom: 10px;
+}
+
+.mission p {
+    color: #424242; /* Dark grey */
+    font-size: 1.2em;
+}
+
+/* Features Section */
+.features {
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.features ul li {
+    background-color: #4caf50; /* Green color */
+    color: #fff;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background-color: #1976d2; /* Blue color */
+    color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+footer h1 {
+    font-size: 1.5em;
+    color: #ffeb3b; /* Yellow color */
+}

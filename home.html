@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handball Club - Home</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Include additional styles for the gallery */
+        .gallery {
+            background-color: #fff;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .gallery h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #ff5722;
+            height: 100%;
+        }
+
+        .slideshow-container {
+            position: relative;
+            max-width: 1000px;
+            height: 600px;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .mySlides {
+            display: none;
+            width: 100%;
+            height:100%;
+        }
+
+        .slide-img {
+            width: 100%;
+            height: auto;
+            cursor: pointer;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: #fff;
+            font-weight: bold;
+            font-size: 18px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0,0,0,0.8);
+        }
+
+        .dots {
+            text-align: center;
+        }
+
+        .dot {
+            cursor: pointer;
+            height: 15px;
+            width: 15px;
+            margin: 0 2px;
+            background-color: #bbb;
+            border-radius: 50%;
+            display: inline-block;
+            transition: background-color 0.6s ease;
+        }
+
+        .active, .dot:hover {
+            background-color: #717171;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a style="font-size: x-large;" href="aboutus.html">About Us</a></li>
+                <li><a style="font-size: x-large;" href="news.html">News</a></li>
+                <li><a style="font-size: x-large;" href="vision.html">Vision</a></li>
+                <li><a style="font-size: x-large;" href="achivements.html">Achievements</a></li>
+                <li><a style="font-size: x-large;" href="contact.html">Contact</a></li>
+                <li><a style="font-size: x-large;" href="application.html">Application</a></li>
+            </ul>
+        </nav>
+        <div class="container">
+            <img src="./photo.jpg" style="height:250px;width:250px;"class="logo">"
+            <img src="./handballlogo.jpg" style="height:250px;width:250px;"class="logo">"
+            <img src="./WhatsApp Image 2024-08-22 at 19.53.19_3bebc921.jpg" style="height:250px;width:250px;"class="logo">
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container1">
+            <p>Shree Sant Gajanan Maharaj Education, Sports and Health Multipurpose Institution Karanja (Lad) Washim Regt. MAHARASHTRA 383/2013 F 7817 WASHIM DIRECTED BY</p>
+            <h2>Welcome to</h2>
+            <h1>SHREE SANT GAJANANA MAHARAJA HANDBALL CLUB</h1>
+        </div>
+    </section>
+
+    <div style="display: flex; justify-content: center;">
+        <h1>Your journey to handball greatness starts here!</h1>
+    </div>
+
+    <!-- Gallery Section -->
+    <section class="gallery">
+        <h2>Gallery</h2>
+        <div class="slideshow-container">
+            <div class="mySlides">
+                <a href="gallery.html">
+                    <img class="slide-img" src="slide1.jpg" alt="Slide 1">
+                </a>
+            </div>
+            <div class="mySlides">
+                <a href="gallery.html">
+                    <img class="slide-img" src="slide2.jpg" alt="Slide 2">
+                </a>
+            </div>
+            <div class="mySlides">
+                <a href="gallery.html">
+                    <img class="slide-img" src="slide3.jpg" alt="Slide 3">
+                </a>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="container">
+            <div class="feature">
+                <h2>Join Our Club</h2>
+                <p>Become a part of our vibrant community of handball enthusiasts.</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
+            <p>Designed by Anway Chaware</p>
+        </div>
+    </footer>
+
+    <script>
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        setInterval(() => {
+            plusSlides(1);
+        }, 3000);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            let i;
+            let slides = document.getElementsByClassName("mySlides");
+            let dots = document.getElementsByClassName("dot");
+            if (n > slides.length) { slideIndex = 1 }
+            if (n < 1) { slideIndex = slides.length }
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+        }
+    </script>
+</body>
+</html>

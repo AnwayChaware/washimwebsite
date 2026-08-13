@@ -1,0 +1,128 @@
+/* General Page Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+    color: #333;
+}
+
+/* Header and Navigation */
+header {
+    background-color: #4caf50;
+    color: #fff;
+    padding: 20px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: right;
+    padding: 0 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 5px 10px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+nav ul li a:hover {
+    background-color: #fff;
+    color: #4caf50;
+    border-radius: 5px;
+}
+
+/* News Section */
+.news {
+    background: linear-gradient(135deg, #ffeb3b, #ff5722);
+    padding: 40px 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: #333;
+}
+
+.news .container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.news h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.3);
+}
+
+.news article {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.news article h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #ff5722;
+}
+
+.news article p {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Footer */
+footer {
+    background-color: #4caf50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-top: 8px solid #388e3c;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    nav ul {
+        text-align: center;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    .news h1 {
+        font-size: 2em;
+    }
+
+    .news article h2 {
+        font-size: 1.5em;
+    }
+
+    .news article p {
+        font-size: 1em;
+    }
+}

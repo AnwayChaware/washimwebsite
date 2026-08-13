@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Handball Club - Achievements & National Players</title>
+    <link rel="stylesheet" href="achivements.css">
+    <style>
+        /* Overlay background */
+        .overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8); /* Black background with transparency */
+            z-index: 1000; /* Make sure it covers everything else */
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Content inside the overlay */
+        .overlay-content {
+            position: relative;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            overflow-y: auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow effect */
+        }
+
+        /* Close button */
+        .close {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 30px;
+            cursor: pointer;
+            color: #000;
+        }
+
+        /* Player image inside the overlay */
+        .overlay-content img {
+            width: 100%;
+            height: auto;
+            max-width: 300px; /* Ensure the image is not too large */
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        /* Player name and details */
+        .overlay-content h2 {
+            margin: 10px 0;
+            font-size: 2em;
+        }
+
+        .overlay-content p {
+            font-size: 1.2em;
+        }
+
+        /* Section for National Players */
+        .national-players h2 {
+            cursor: pointer;
+            color: #007BFF;
+            text-decoration: underline;
+        }
+
+        .player-list {
+            display: none;
+            margin-top: 20px;
+        }
+
+        .player-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .player-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .player-card img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            background: url('loading.gif') center center no-repeat; /* Placeholder image */
+            background-size: 50px;
+            transition: transform 0.3s ease;
+        }
+
+        .player-card img.loaded {
+            background: none;
+        }
+
+        .player-card h2 {
+            margin-top: 10px;
+            font-size: 1.5em;
+        }
+
+        .player-card p {
+            text-align: center;
+        }
+
+        /* Footer Styling */
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1em;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="aboutus.html">About Us</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="vision.html">Vision</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="application.html">Application</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="achievements">
+        <div class="container">
+            <h1>Achievements</h1>
+            <!-- You can add general club achievements here -->
+        </div>
+    </section>
+
+    <section class="national-players">
+        <div class="container">
+            <h1>Our National Players</h1>
+
+            <!-- Men Section -->
+            <h2 onclick="toggleSection('men')">Men</h2>
+            <div id="men" class="player-list">
+                <!-- Player 1 -->
+                <div class="player-card" onclick="showPlayerDetails('vivekshinde.jpg', 'Vivek Vyankat Shinde', '▪ 37th Sub Junior Boys National Handball Championship, Guwahati, Assam (27th March to 31st March 2023)')"
+                    role="button" aria-label="View details for Vivek Vyankat Shinde">
+                    <img src="vivekshinde.jpg">
+                    <h2>Vivek Vyankat Shinde</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Add more players for men here -->
+            </div>
+
+            <!-- Women Section -->
+            <h2 onclick="toggleSection('women')">Women</h2>
+            <div id="women" class="player-list">
+                <!-- Player 1 -->
+                <div class="player-card" onclick="showPlayerDetails('sakshimatode.jpg', 'Sakshi Dattatraya Matode', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 3rd March 2022)<br>▪ 66th National Games 2022-2023, Handball Girls U19, Delhi (6th June - 12th June 2023)<br>▪ West Zone Inter University Handball (W) Tournament, Udaipur (19th - 23rd January 2024')"
+                    role="button" aria-label="View details for Sakshi Dattatraya Matode">
+                    <img src="sakshimatode.jpg">
+                    <h2>Sakshi Dattatraya Matode</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 2 -->
+                <div class="player-card" onclick="showPlayerDetails('mohini_ghate.jpg', 'Mohini Ravindra Ghate', '▪ 37th Sub Junior Girls National Handball Championship, Lucknow, Uttar Pradesh (27th Feb - 2nd March 2022)<br>▪ 67th National School Games 2023-2024, Handball Girls U19, Hisar, Haryana (5th Jan - 9th Jan 2024)<br>▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024')"
+                    role="button" aria-label="View details for Mohini Ravindra Ghate">
+                    <img src="mohini_ghate.jpg">
+                    <h2>Mohini Ravindra Ghate</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 3 -->
+                <div class="player-card" onclick="showPlayerDetails('bhumika_khade.jpg', 'Bhumika Nilesh Khade', '▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan-31st Jan 2024)')"
+                    role="button" aria-label="View details for Bhumika Nilesh Khade">
+                    <img src="bhumika_khade.jpg">
+                    <h2>Bhumika Nilesh Khade</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 4 -->
+                <div class="player-card" onclick="showPlayerDetails('IMG_20240824_171840.jpg', 'Ishwari Prakash Thakare', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec-18th Dec 2022)')"
+                    role="button" aria-label="View details for Ishwari Prakash Thakare">
+                    <img src="IMG_20240824_171840.jpg">
+                    <h2>Ishwari Prakash Thakare</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 5 -->
+                <div class="player-card" onclick="showPlayerDetails('samiksha_chaudhary.jpg', 'Samiksha Ravindra Chaudhari', '▪ 37th Sub Junior Girls National Handball Championship, Saran, Bihar (14th Dec - 18th Dec 2022)')"
+                    role="button" aria-label="View details for Samiksha Ravindra Chaudhari">
+                    <img src="samiksha_chaudhary.jpg">
+                    <h2>Samiksha Ravindra Chaudhari</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 6 -->
+                <div class="player-card" onclick="showPlayerDetails('utkarsha_musale.jpg', 'Utkarsha Rajesh Musale', '▪ 45th Junior Girls National Handball Championship, Bareilly, Uttar Pradesh (22nd Mar - 26th Mar 2023)<br>▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024')"
+                    role="button" aria-label="View details for Utkarsha Rajesh Musale">
+                    <img src="utkarsha_musale.jpg">
+                    <h2>Utkarsha Rajesh Musale</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 7 -->
+                <div class="player-card" onclick="showPlayerDetails('janhavi.jpg', 'Janhavi Amol Chaudhari', '▪ 67th National School Games 2023-2024, Handball Girls U17, Shajapur, Madhya Pradesh (16th Jan - 21st Jan)')"
+                    role="button" aria-label="View details for Janhavi Amol Chaudhari">
+                    <img src="janhavi.jpg">
+                    <h2>Janhavi Amol Chaudhari</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Player 8 -->
+                <div class="player-card" onclick="showPlayerDetails('sakshi_surjuse.jpg', 'Sakshi Tulshiram Surjuse', '▪ 45th Junior Girls National Handball Championship, Saran, Bihar (27th Jan - 31st Jan 2024)')"
+                    role="button" aria-label="View details for Sakshi Tulshiram Surjuse">
+                    <img src="sakshi_surjuse.jpg">
+                    <h2>Sakshi Tulshiram Surjuse</h2>
+                    <p>Click for more details</p>
+                </div>
+
+                <!-- Add more players for women here -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Overlay for Player Details -->
+    <div id="overlay" class="overlay">
+        <div class="overlay-content">
+            <span class="close" onclick="closeOverlay()">&times;</span>
+            <img id="overlay-img" src="" alt="Player Image">
+            <h2 id="overlay-name"></h2>
+            <p id="overlay-details"></p>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Shree Sant Gajanan Maharaja Handball Club. All Rights Reserved.</p>
+            <p>Designed by Anway Chaware</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section.style.display === 'none' || section.style.display === '') {
+                section.style.display = 'block';
+            } else {
+                section.style.display = 'none';
+            }
+        }
+
+        function showPlayerDetails(imgSrc, name, details) {
+            document.getElementById('overlay-img').src = imgSrc;
+            document.getElementById('overlay-name').innerText = name;
+            document.getElementById('overlay-details').innerHTML = details;
+
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'flex';
+        }
+
+        function closeOverlay() {
+            const overlay = document.getElementById('overlay');
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
